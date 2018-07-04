@@ -37,7 +37,7 @@ namespace MrE.Models.Entities
 
         [ForeignKey("UserUpdated")]
         [Display(Name ="Date Updated")]
-        public DateTime? DateUpdate { get; set; }
+        public DateTime? DateUpdated { get; set; }
         public int? UserUpdateID { get; set; }
        public User UserUpdated { get; set; }
 

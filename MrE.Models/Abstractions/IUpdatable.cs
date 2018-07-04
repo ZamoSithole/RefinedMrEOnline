@@ -7,7 +7,7 @@ namespace MrE.Models.Abstractions
 {
     public interface IUpdatable
     {
-        DateTime? DateUpdate { get; set; }
+        DateTime? DateUpdated { get; set; }
         int? UserUpdateID { get; set; }
          User UserUpdated { get; set; }
     }

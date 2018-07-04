@@ -1,30 +1,20 @@
-﻿using MrE.Models.Abstractions;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
+using MrE.Models.Abstractions;
 
 namespace MrE.Models.Entities
 {
-    [Table("Addresses")]
-    public class Address : ICreatable, IDeletable, IUpdatable
+    [Table("Statuses")]
+   public class Status : ICreatable, IDeletable, IUpdatable
     {
         [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-
-        public int AddressID { get; set; }
-
-        [Display(Name = "Street Number")]
-        public int? StreetNumber { get; set; }
-
-        [Display(Name ="Street Name")]
-        public string StreetName { get; set; }
-
-        [Display(Name = "Suburb/Town")]
-        public string SuburbTown { get; set; }
-
-        [Display(Name = "Area Code")]
-        public string AreaCode { get; set; }
+        public int StatusID { get; set; }
+        [Display(Name = " Status")]
+        public string Name { get; set; }
+        public string Description { get; set; }
 
         public bool IsDeleted { get; set; }
         [ForeignKey("UserCreated")]
@@ -33,13 +23,14 @@ namespace MrE.Models.Entities
         public DateTime DateCreated { get; set; }
 
         [ForeignKey("UserUpdated")]
+        public DateTime? DateUpdated { get; set; }
         public int? UserUpdateID { get; set; }
         public User UserUpdated { get; set; }
-        public DateTime? DateUpdated { get; set; }
 
         [ForeignKey("UserDeleted")]
         public int? UserDeletedID { get; set; }
         public User UserDeleted { get; set; }
         public DateTime? DateDeleted { get; set; }
+
     }
 }
